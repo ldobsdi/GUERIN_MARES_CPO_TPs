@@ -12,7 +12,7 @@ public class TP1 {
 
     /**
      * @param args the command line arguments
-     */
+     */ int x =3;
     public static void main(String[] args) {
         // TODO code application logic here
     }
