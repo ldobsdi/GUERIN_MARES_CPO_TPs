@@ -4,6 +4,8 @@
  */
 package guessmynumber;
 
+import java.util.Random;
+
 /**
  *
  * @author doria
@@ -14,7 +16,12 @@ public class GuessMyNumber {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int a = 0;
+        Random generateurAleat = new Random();
+        int n = generateurAleat.nextInt(100);
+        
+        for (int i=1; i<6; i++) {
+            System.out.println(n);
+        }
     }
     
 }
