@@ -14,7 +14,13 @@ public class TP1 {
      * @param args the command line arguments
      */ 
     public static void main(String[] args) {
-        // TODO code application logic here
+        float temperature;
+        Scanner sc;
+        System.out.println("Veuillez saisir une valeur de type Float");
+        temperature = sc.nextFloat();
+        System.out.println("température : " + temperature);
     }
+
+    
     
 }
