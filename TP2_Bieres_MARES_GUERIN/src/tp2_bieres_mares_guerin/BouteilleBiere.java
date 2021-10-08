@@ -9,5 +9,7 @@ package tp2_bieres_mares_guerin;
  * @author doria
  */
 public class BouteilleBiere {
-    
+    int g( {
+        
+    }
 }
