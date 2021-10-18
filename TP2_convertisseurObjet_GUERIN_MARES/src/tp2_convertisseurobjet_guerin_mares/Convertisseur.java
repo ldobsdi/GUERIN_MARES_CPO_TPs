@@ -22,12 +22,14 @@ public class Convertisseur {
     public Convertisseur () {
        nbConversions = 0;  
     }
+
     
     
     public double CelciusVersKelvin (double t) { 
       t = t + 273.15;
       System.out.println("température en Kelvin: " + t);
       nbConversions += 1;
+      System.out.println("Le nombre de conversions est:" + nbConversions);
       return t;
       
      }
@@ -36,6 +38,7 @@ public class Convertisseur {
      t = t - 273.15;
      System.out.println("température en Celcius: " + t);
      nbConversions += 1;
+     System.out.println("Le nombre de conversions est:" + nbConversions);
      return (float) t;
      
     }
@@ -45,6 +48,7 @@ public class Convertisseur {
      System.out.println("température en Farenheit: " + t);
      nbConversions += 1;
      System.out.println(nbConversions);
+     System.out.println("Le nombre de conversions est:" + nbConversions);
      return t;
      
     }
@@ -54,6 +58,7 @@ public class Convertisseur {
      System.out.println("température en Farenheit: " + t);
      nbConversions += 1;
      System.out.println(nbConversions);
+     System.out.println("Le nombre de conversions est:" + nbConversions);
      return (double) t;
     }
     
@@ -63,6 +68,7 @@ public class Convertisseur {
      System.out.println("température en Celcius: " + t);
      nbConversions += 1;
      System.out.println(nbConversions);
+     System.out.println("Le nombre de conversions est:" + nbConversions);
       return 0;
       
     }
@@ -79,8 +85,8 @@ public class Convertisseur {
         return ("nb de conversions"+ nbConversions);
      
 }
-    
-    
+
+   
 }
 
 

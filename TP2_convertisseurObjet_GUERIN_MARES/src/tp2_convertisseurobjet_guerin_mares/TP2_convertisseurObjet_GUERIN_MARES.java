@@ -4,6 +4,8 @@
  */
 package tp2_convertisseurobjet_guerin_mares;
 
+import java.util.Scanner;
+
 /**
  *
  * @author doria
@@ -11,6 +13,7 @@ package tp2_convertisseurobjet_guerin_mares;
 public class TP2_convertisseurObjet_GUERIN_MARES {
 
     private static boolean nbConversions;
+    private static float t;
 
     /**
      * @param args the command line arguments
@@ -20,6 +23,6 @@ public class TP2_convertisseurObjet_GUERIN_MARES {
         Convertisseur conversions = new Convertisseur();
         conversions.CelciusVersFarenheit(0);
         conversions.FarenheitVersCelsius(43);
-        
-}
+        conversions.KelvinVersFarenheit(7000);
+    }
 }
