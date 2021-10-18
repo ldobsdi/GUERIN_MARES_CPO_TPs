@@ -16,7 +16,7 @@ public class TP2_manip_GUERRRIN_MARES {
     public static void main(String[] args) {
         //Variables :
         int var;
-        
+        int calo = 300 ;
         Tartiflette assiette1 = new Tartiflette(500) ; 
         Tartiflette assiette2 = new Tartiflette(600) ;
         Tartiflette assiette3 = assiette2 ;
@@ -35,7 +35,10 @@ public class TP2_manip_GUERRRIN_MARES {
         // Question 6 - Faux et Faux, on ne peut pas melanger deux classes, la réponse est non
         // Question 7 : Crétion de 10 Moussakas
         Moussaka[] tabMoussaka = new Moussaka [10];
-        
+        for (int i=0 ;  i<10 ; i++){
+            tabMoussaka[i]= new Moussaka (calo);
+        }
+        // Question rhétorique : JSP
         
     }   
     
