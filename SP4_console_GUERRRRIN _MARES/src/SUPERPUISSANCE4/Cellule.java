@@ -34,7 +34,7 @@ public class Cellule {
     }
     
     public Jeton recupererJeton(){ //Redonne le jeton
-        return jetonCourant;// A COMPLETER
+        return jetonCourant;// 
     }
     
     public String lirecouleurdujeton(){

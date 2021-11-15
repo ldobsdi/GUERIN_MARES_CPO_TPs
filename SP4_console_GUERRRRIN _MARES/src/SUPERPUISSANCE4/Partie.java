@@ -36,9 +36,60 @@ public class Partie {
     }
     
     public void initialiserPartie(){
+        //Création de la grille de jeu 
+        grilleJeu = new Grille();
+        
+        //placement des trou noirs
+        int compteurtn = 0; // tn = trous noirs
+        
+        int compteurdses = 0;// Ce compteur permet de compter le nombre de désintégrateurs
+                         //placés sur des trous noirs
+        int compteurDes = 0;// Des = désintégrateurs
+        Random rand = new Random();
+        int coor1;
+        int coor2;
+        
+       while (compteurtn != 5){
+            //Coordonnées aléatoires
+            coor1 = rand.nextInt(6); // 6 lignes
+            coor2 = rand.nextInt(7); // 7 colonnes
+            
+            if (grilleJeu.Cellules[coor1][coor2].placerTrouNoir()){
+                //Si le placement du trou noir est possible, on rajoute un désintégrateur.
+                if (compteurdses < 2){
+                grilleJeu.Cellules[coor1][coor2].placerDesintegrateur();
+                compteurdses++;//On incrément le compteur trounoir/Désintégrateur dans la boucle
+                }
+                
+                compteurtn+=1;//On incrémente le compteur trou noir dans la boucle
+            }
+        }
+        //Une fois les 5 trou noirs et les 2 désintégrateurs associés placés, il reste à placer les 3 désintégrateurs restants
+        
+        while (compteurDes < 3){
+            coor1 = rand.nextInt(6);
+            coor2 = rand.nextInt(7);
+            
+            //On place les trois désintégrateurs restants sur des cases où il n'y a pas de trou noir et de desintegrateur
+            if (!grilleJeu.Cellules[coor1][coor2].presenceTrouNoir() && 
+                !grilleJeu.Cellules[coor1][coor2].presenceDesintegrateur()){
+                grilleJeu.Cellules[coor1][coor2].placerDesintegrateur();
+                compteurDes++;
+            }
+        }
+        
+        //attribution des jetons
+        for (int i = 0; i<21; i++){
+            //rajoute un jeton
+            
+            ListeJoueurs[0].ajouterJeton(new Jeton(ListeJoueurs[0].Couleur));
+            ListeJoueurs[1].ajouterJeton(new Jeton(ListeJoueurs[1].Couleur));
+        }
+        
+        }
     }
     
     public void debuterPartie() {
         
     }
-}
+
