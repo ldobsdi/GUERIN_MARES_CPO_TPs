@@ -19,6 +19,9 @@ public class Grille {
     }
 }
 }
+    }
+}
+}
 }
 
 public boolean ajouterJetonDansColonne(Jeton, int){
@@ -29,7 +32,6 @@ public boolean etreRemplie () {
 boolean etreRemplie = true;
 
 }
-    
 
 
        

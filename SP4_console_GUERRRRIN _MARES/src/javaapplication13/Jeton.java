@@ -12,23 +12,18 @@ import java.util.Random;
  */
 public class Jeton {
     //Attributs
-    Random generateurAleat = new Random(); 
     String Couleur ; //Couleur affecté au joueur
-    int unoudeux;
+   
     
     //Méthodes :
     public String lireCouleur(int parametre){ //Initialisation de la couleur du jeton aléatoirement
-        
-        
-        if(parametre==1){
-            Couleur = "Jaunes";
-            }
-        else {
-            Couleur = "Rouges";
-        }
-        System.out.println("Vous avez les jetons " + Couleur);
         return Couleur;
         
         
+    }
+    
+    public Jeton(String couleur) { //constructeur
+    
+    Couleur = couleur;
     }
 }

@@ -24,20 +24,15 @@ public class Joueur {
     //int parametre;
     
     //Méthodes
-    public int Joueur(int parametre){
-        System.out.println("Quel est votre prenom/surnom ?");
-        String Nom = saisieUtilisateur.next();
-        parametre = generateurAleat.nextInt(2);
+    public Joueur(String nom){
+        Nom = nom;
+        nombreDesintegrateurs = 0;
+    }
+    
+    public void affecterCouleur(String Couleur){
+        Jeton.Couleur = Couleur;
+    }
 
-        System.out.println(parametre + Nom);
-        return parametre ;
-        
-    }
-    
-    public String affecterCouleur(int k){
-        Couleur.Jeton(k);
-    }
-    
     public void ajouterjeton(){
         
     }
