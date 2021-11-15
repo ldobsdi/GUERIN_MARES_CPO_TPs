@@ -36,29 +36,4 @@ public class SUPERPUISSANCE4 {
         //Lancement de la partie
         
         
-        //On crée une boucle afin que les joueurs puisse rejouer
-        int Reponse = 1; //Permet au joueur de choisir si il veut rejouer
-        while (Reponse == 1){
-            
-            game.attribuerCouleurAuxJoueurs(Joueur1, Joueur2);//donne les couleurs aux joueurs
-            game.initialiserPartie();
-            game.debuterPartie();
-        
-        //Fin de la partie 
        
-            if (game.JoueurCourant != null){
-                System.out.println("victoire "+game.JoueurCourant.nom.toUpperCase()+" le boss ");
-                game.GrilleDeJeu.afficherGrilleSurConsole();
-                System.out.println("Souhaitez vous rejouer? vous etes trop forts! (1 : oui | 0 : non)"); //pour rejouer
-                Reponse = sc.nextInt();
-            }
-            else{
-                System.out.println("match nul, apprenez à jouer"); //
-                game.GrilleDeJeu.afficherGrilleSurConsole();
-                System.out.println("Souhaitez vous rejouer ? (1 : oui | 0 : non)");
-                Reponse = sc.nextInt();
-            }
-        }
-        System.out.println("Merci d'avoir joué, vous etes trop fort !");
-    } 
-}
