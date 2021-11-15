@@ -18,7 +18,7 @@ public class Joueur {
     // Attributs
     String Nom;
     String Couleur;
-    int [] ListeJetons = new int[21];
+    Jeton [] ListeJetons = new Jeton[21];
     int nombreJetonsRestants ; // =lenght.ListeJetons
     int nombreDesintegrateurs ;
     //int parametre;
@@ -30,18 +30,32 @@ public class Joueur {
     }
     
     public void affecterCouleur(String Couleur){
-        Jeton.Couleur = Couleur;
+        this.Couleur = Couleur;
+        //On utilise this car le nom de la variable globale (Couleur)
+        // est le même que celui de la variable en argument de la méthode
     }
 
-    public void ajouterjeton(){
+    public void ajouterjeton(Jeton jetoon){
+        for (int i = 0; i < 21 ; i++){
+           if (this.ListeJetons[i] == null){
+               this.ListeJetons[i] = jetoon;
         
+   }
+    }
     }
     
     public void obtenirDesintegrateur(){
-        
+        nombreDesintegrateurs += 1; //INCREMENTATION
     }
     
-    public void utiliserDesintegrateur(){
+    public boolean utiliserDesintegrateur(){
+         if (nombreDesintegrateurs == 0){// le nombre de desintegrateur est égale à 0
+            return false;
+        }
+        else{
+            nombreDesintegrateurs = nombreDesintegrateurs - 1;//enlève un desintegrateur
+            return true;
+        }
 }
 }
 
