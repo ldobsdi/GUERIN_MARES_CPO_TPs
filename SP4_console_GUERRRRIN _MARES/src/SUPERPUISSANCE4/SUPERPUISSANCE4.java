@@ -28,12 +28,14 @@ public class SUPERPUISSANCE4 {
         Joueur Joueur2 = new Joueur(sc.nextLine());
         
         //Création de la partie
-        Partie game = new Partie();
-        game.ListeJoueurs[0] = Joueur1;
-        game.ListeJoueurs[1] = Joueur2;
+        Partie jeu = new Partie();
+        jeu.ListeJoueurs[0] = Joueur1;
+        jeu.ListeJoueurs[1] = Joueur2;
+    
                 
         
         //Lancement de la partie
+    }
         
         
        

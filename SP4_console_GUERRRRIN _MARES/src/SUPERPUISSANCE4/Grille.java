@@ -11,11 +11,13 @@ import SUPERPUISSANCE4.Cellule;
  * @author egnma
  */
 public class Grille {
-
+    // Attributs :
     Cellule [][] CellulesJeu = new Cellule[6][7];
     
-    public void Grille() {
-        for (int i = 0; i < 6 ; i++) {
+    //Méthodes
+    public void Grille() { // Initialisation d'une grille vide
+        for (int i = 0; i < 6 ; i++) { // On prend la première ligne puis on initialise 
+                                        // chaque colonne : de la première à la 7ème 
             for (int j = 0; j < 7; j++){
         CellulesJeu [i][j] = null;
         
@@ -42,13 +44,13 @@ public class Grille {
                 if (CellulesJeu[5-ligne][colonne-1].trouNoir && CellulesJeu[5-ligne][colonne-1].desintegrateur ){
                     CellulesJeu[5-ligne][colonne-1].activerTrouNoir();
                     CellulesJeu[5-ligne][colonne-1].recupererDesintegrateur();
-                    System.out.println("Malheur ! le jeton du joueur a été aspiré !"
-                            + " Oh ! Vous remportez un désintégrateur");
+                    System.out.println("Le jeton du joueur a été aspiré par le trou noir!"
+                            + " Vous remportez donc un désintégrateur !");
                 }
                 
                 //Cas ou l'emplacement contient un seul un trou noir.
                 if (CellulesJeu[5-ligne][colonne-1].trouNoir){
-                    System.out.println("Malheur ! le jeton du joueur a été aspiré par un trou noir !");
+                    System.out.println("Le jeton du joueur a été aspiré par un trou noir !");
                     CellulesJeu[5-ligne][colonne-1].activerTrouNoir();   
                 }
                 
