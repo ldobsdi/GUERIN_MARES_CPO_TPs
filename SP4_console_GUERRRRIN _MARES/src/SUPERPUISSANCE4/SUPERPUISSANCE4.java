@@ -32,10 +32,13 @@ public class SUPERPUISSANCE4 {
         jeu.ListeJoueurs[0] = Joueur1;
         jeu.ListeJoueurs[1] = Joueur2;
     
-                
+        //Initialisation de la partie        
+        jeu.initialiserPartie();
         
         //Lancement de la partie
+        jeu.debuterPartie();
     }
+}
         
         
        

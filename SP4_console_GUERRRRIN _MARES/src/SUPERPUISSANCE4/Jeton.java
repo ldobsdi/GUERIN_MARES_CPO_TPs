@@ -16,7 +16,7 @@ public class Jeton {
    
     
     //Méthodes :
-    public String lireCouleur(int parametre){ //Initialisation de la couleur du jeton aléatoirement
+    public String lireCouleur(){ //Initialisation de la couleur du jeton aléatoirement
         return Couleur;
         
         
