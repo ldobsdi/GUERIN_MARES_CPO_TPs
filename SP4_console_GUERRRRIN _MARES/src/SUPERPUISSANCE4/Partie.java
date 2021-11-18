@@ -20,7 +20,7 @@ public class Partie {
 
     //Methodes ;
     public void AttribuerCouleursAuxJoueurs(Joueur J1, Joueur J2) {
-        String Couleur1 = "bleu"; //A voir pour vrai couleurs
+        String Couleur1 = "jaune"; //A voir pour vrais couleurs
         String Couleur2 = "Rouge";
         Random r = new Random(); // Permet un choix aléatoire des couleurs
         int couleurhazard = r.nextInt(2); // NB aléatoire entre 1 et 0 !
@@ -82,8 +82,8 @@ public class Partie {
         //attribution des jetons
         for (int i = 0; i < 21; i++) { //Si tous les jetons ne sont pas placés:
             //rajoute un jeton
-            ListeJoueurs[0].ajouterjeton(); //On appelle la méthode de ma classe grille
-            ListeJoueurs[1].ajouterjeton(coor2);
+            ListeJoueurs[0].ListeJetons[i] = new Jeton("rouge"); //On appelle la méthode de ma classe grille
+            ListeJoueurs[1].ListeJetons[i] = new Jeton("jaune");
         }
 
     }
