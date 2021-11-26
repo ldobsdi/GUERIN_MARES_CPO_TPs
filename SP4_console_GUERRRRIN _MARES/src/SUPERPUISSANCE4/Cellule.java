@@ -71,7 +71,7 @@ public class Cellule {
             return true;
         }
         else{
-        return false;   
+        return false;   //permet d'éviter deux désintegrateurs au même endroit
         }
     }
     

@@ -15,11 +15,11 @@ public class Grille {
     Cellule [][] CellulesJeu = new Cellule[6][7];
     
     //Méthodes
-    public void Grille() { // Initialisation d'une grille vide
+    public  Grille() { // Initialisation d'une grille vide
         for (int i = 0; i < 6 ; i++) { // On prend la première ligne puis on initialise 
                                         // chaque colonne : de la première à la 7ème 
             for (int j = 0; j < 7; j++){
-        CellulesJeu [i][j] = null;
+        CellulesJeu [i][j] = new Cellule(null, false, false );
         
             }
         }
@@ -70,7 +70,7 @@ public class Grille {
         int var = 0;
         for (int i=1; i<6;i++){//Cette série de for regarde si chacune des cases est remplie, si c'est le cas la méthode renvoie true, sinon elle return false
             for (int j=1;j<7;j++){
-                if (CellulesJeu[i][j]==null){//On regarde si la cellule à la meme colonne et si la meme ligne est vide
+                if (CellulesJeu[i][j].jetonCourant==null){//On regarde si la cellule à la meme colonne et si la meme ligne est vide
                     var = 1 ;
                     
                 }
@@ -90,7 +90,7 @@ public class Grille {
     public void viderGrille(){ //Cette méthode vide la grille de son contenu
         for (int i=1; i<6;i++){
             for (int j=1;j<7;j++){
-                   CellulesJeu[i][j]=null;
+                   CellulesJeu[i][j].jetonCourant=null;
             }
     }
     }

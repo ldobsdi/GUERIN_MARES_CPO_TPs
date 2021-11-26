@@ -84,8 +84,10 @@ public class Partie {
         //attribution des jetons
         for (int i = 0; i < 21; i++) { //Si tous les jetons ne sont pas placés:
             //rajoute un jeton
-            ListeJoueurs[0].ListeJetons[i] = new Jeton("rouge"); //On appelle la méthode de ma classe grille
-            ListeJoueurs[1].ListeJetons[i] = new Jeton("jaune");
+            ListeJoueurs[0].ListeJetons[i] = new Jeton("R"); //On appelle la méthode de ma classe grille
+            ListeJoueurs[0].nombreJetonsRestants++; //On ajoute les jetons
+            ListeJoueurs[1].ListeJetons[i] = new Jeton("J");
+            ListeJoueurs[1].nombreJetonsRestants++;
         }
 
     }
@@ -108,8 +110,13 @@ public class Partie {
                 colonneSelec = sc.nextInt();
                 //Coup valide
                 while(colonneSelec > 7){
-                    System.out.println("Erreur, Saisit un autre numéro de colonne (<7) !");//Colonne non valide ! on redemmande
+                    System.out.println("Erreur, Saisis un autre numéro de colonne (<7) !");//Colonne non valide ! on redemmande
                     colonneSelec = sc.nextInt();
+                }
+                while(colonneSelec < 1) {
+                    System.out.println("Erreur, Saisis un autre numéro de colonne (>1) !");//Colonne non valide ! on redemmande
+                    colonneSelec = sc.nextInt();
+                    
                 }
                 
                 while(grilleJeu.colonneRemplie(colonneSelec) == true){ 
@@ -143,18 +150,22 @@ public class Partie {
         }
         }
         
-        //Choisir la colonne où insérer le jeton
+        //Choisir la colonne où insérer le jeton ca marche
         
         
-        // Faire descendre le jeton
+        // Faire descendre le jeton ca marche
         
-        //Vérifier s'il y a un trou noir
+        //Vérifier s'il y a un trou noir ca marche
         
-        // Vérifier s'il y a un désintégrateur
+        // Vérifier s'il y a un désintégrateur ca marche
         
-        //Vérifier si 4 jetons de la même couleur sont alignés
+        //Vérifier si 4 jetons de la même couleur sont alignés ca MARCHE PAS
         
-        //on passe au joueur suivant
+        //on passe au joueur suivant ca marche
+        //il faut encore trouver une solution pour pas que les nouveaux jetons prennent la place des anciens au lieu de s'empiler
+ //verifier si colonne est vide dans la methode ajouter jeton dans colonne
+        // en plus, la phrase partie terminée s'affiche à chaque tour ca viebt du dernier if 
+        //pareil pour le joueur a recup un desintegrateur
     }
  
 
