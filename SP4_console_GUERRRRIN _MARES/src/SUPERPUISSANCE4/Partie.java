@@ -20,8 +20,8 @@ public class Partie {
 
     //Methodes ;
     public void AttribuerCouleursAuxJoueurs(Joueur J1, Joueur J2) {
-        String Couleur1 = "jaune"; //A voir pour vrais couleurs
-        String Couleur2 = "Rouge";
+        String Couleur1 = "\u001B[33m" +"O"+"\u001B[0m"; // JAUNE
+        String Couleur2 = "\u001B[31m"+"O"+"\u001B[0m"; //ROUGE
         Random r = new Random(); // Permet un choix aléatoire des couleurs
         int couleurhazard = r.nextInt(2); // NB aléatoire entre 1 et 0 !
         if (couleurhazard == 0) {
@@ -48,13 +48,15 @@ public class Partie {
         //Coord de la case de la grille
         int coor1; // ligne
         int coor2; // colonne
+        int coor1aleat; // ligne
+        int coor2aleat; // colonne
 
         while (compteurtn != 5) {
             //Coordonnées aléatoires
             coor1 = rand.nextInt(6); // 6 lignes
             coor2 = rand.nextInt(7); // 7 colonnes
-
-            if (grilleJeu.CellulesJeu[coor1][coor2].placerTrouNoir()) { // On fait appel à la classe grille
+            
+            if (grilleJeu.CellulesJeu[coor1][coor2].placerTrouNoir()) { // On fait appel à la classe cellule
                 //Si le placement du trou noir est possible, on rajoute un désintégrateur.
                 if (compteurdses < 2) {
                     grilleJeu.CellulesJeu[coor1][coor2].placerDesintegrateur();
@@ -91,30 +93,48 @@ public class Partie {
 
  public void debuterPartie() {
         int colonneSelec;
-        Scanner sc = new Scanner(System.in);//Permet de récupérer la ligne jouée    
+        Scanner sc = new Scanner(System.in);//Permet de récupérer la ligne jouée  
+        //Déterminer le joueur cournant
+        Random r = new Random(); // Permet un choix aléatoire des joueur
+        int aleat = r.nextInt(2); // NB aléatoire entre 1 et 0 !
+        joueurCourant= ListeJoueurs[aleat];
         // Poser les bases du jeu :
-        while(grilleJeu.etreRemplie() == false){
-            while(grilleJeu.etreGagnantePourJoueur(joueurCourant)== false){
+        while(grilleJeu.etreRemplie() == false){ //grille pas pleine
+            while(grilleJeu.etreGagnantePourJoueur(joueurCourant)== false){ //Pas encore de gagnant
                 //Afficher grille :
                 grilleJeu.afficherGrilleSurConsole();
                 //Coup du joueur courant
                 System.out.println("Saisir le numéro de colonne");
                 colonneSelec = sc.nextInt();
+                //Coup valide
+                while(colonneSelec > 7){
+                    System.out.println("Erreur, Saisit un autre numéro de colonne (<7) !");//Colonne non valide ! on redemmande
+                    colonneSelec = sc.nextInt();
+                }
                 
-                if(colonneSelec < 7){
-                    if(grilleJeu.colonneRemplie(colonneSelec) == false){
+                while(grilleJeu.colonneRemplie(colonneSelec) == true){ 
+                    System.out.println("Colonne déja pleine, saisir un autre numéro de colonne");//Colonne non valide ! on redemmande
+                    colonneSelec = sc.nextInt();
+                }
                     //On prend un jeton du joueur courant
-                        if(joueurCourant.nombreJetonsRestants != 0){
-                            Jeton j = joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants -1];
-                            joueurCourant.nombreJetonsRestants -- ;
+                if(joueurCourant.nombreJetonsRestants != 0){ // On vérifie qu'il reste au moins un jeton au joueur courant
+                            Jeton j = joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants -1]; // On prend un jeton
+                            joueurCourant.nombreJetonsRestants -- ; // On enleve un au nombre de jetons du joueur courant
                         
                     // Jouer le coup
-                            grilleJeu.ajouterJetonDansColonne(this, j, colonneSelec);
+                            grilleJeu.ajouterJetonDansColonne(this, j, colonneSelec); // On met le jeton dans la colonne souhaitée
                      
                     }
                         else{
-                    
-                  
+                            System.out.println("Malheureusement, vous n'avez plus de jeton , vous ne pouvez pas jouer");
+                
+                }
+                //Au tour de l'autre joueur
+                if (joueurCourant == ListeJoueurs[1]){
+                    joueurCourant = ListeJoueurs[0];
+                    }
+                else {
+                    joueurCourant = ListeJoueurs[1];
                 }
             System.out.println("Partie terminée");
             break;
@@ -136,5 +156,5 @@ public class Partie {
         
         //on passe au joueur suivant
     }
- }
-}
+ 
+
