@@ -23,7 +23,7 @@ public class Cellule {
     }    
     Boolean affecterJeton(Jeton jetonAAffecter){ //Affecte un jeton si il n'y en a pas deja un
         
-        if(jetonCourant == jetonAAffecter){
+        if(jetonCourant != null){
             return false; //jeton déja présent sur la case
         }
         else {
