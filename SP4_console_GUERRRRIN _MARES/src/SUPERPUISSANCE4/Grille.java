@@ -117,7 +117,7 @@ public class Grille {
                 
                 //cas ou la case contient un jeton
                 else{
-                    Text+="["+CellulesJeu[i][j].lirecouleurdujeton()+"]";
+                    Text+="["+CellulesJeu[i][j].lireCouleurDuJeton()+"]";
                 }
                 
                 //Ajout des numéros de ligne
@@ -153,16 +153,16 @@ public class Grille {
         
         int compteur = 0;
         
-        
-        for (int i = 0; i<6; i++){//série de for qui parcours les cases de la grille
-            for (int j = 0; j<6;j++){
+        //série de for qui parcours les cases de la grille
+        for (int i = 0; i<6; i++){ //i = les lignes
+            for (int j = 0; j<6;j++){ //j = les colonnes
                 
                 //Dans ce cas-ci on compare deux cases l'une à  coté de l'autre horizontalement
                 //On vérifie si les deux cases comparées contiennent un jeton
                 if (CellulesJeu[i][j].jetonCourant!=null && CellulesJeu[i][j+1].jetonCourant!=null){
                    System.out.println("ok"); 
 
-                    if (CellulesJeu[i][j].jetonCourant.Couleur.equals(unJoueur.Couleur)&&CellulesJeu[i][j+1].jetonCourant.Couleur.equals(unJoueur.Couleur)){//on vérifie si les cases contiennent un jeton de la mÃªme couleur, on rajoute 1 aux compteur si c'est le cas
+                    if (CellulesJeu[i][j].jetonCourant.CouleuR == unJoueur.Couleur && CellulesJeu[i][j+1].jetonCourant.CouleuR == unJoueur.Couleur){//on vérifie si les cases contiennent un jeton de la même couleur, on rajoute 1 aux compteur si c'est le cas
                         System.out.println("ok2"); 
                         compteur += 1;
                         System.out.println(compteur); 
@@ -193,8 +193,8 @@ public class Grille {
                 if (CellulesJeu[i][j].jetonCourant!=null && CellulesJeu[i+1][j].jetonCourant!=null){
                    
 
-                    if (CellulesJeu[i][j].jetonCourant.Couleur.equals(unJoueur.Couleur)
-                        &&CellulesJeu[i+1][j].jetonCourant.Couleur.equals(unJoueur.Couleur)){
+                    if (CellulesJeu[i][j].jetonCourant.CouleuR == unJoueur.Couleur
+                        &&CellulesJeu[i+1][j].jetonCourant.CouleuR == unJoueur.Couleur){
                         compteur += 1;
                         if (compteur == 3){
                             return true;
@@ -228,8 +228,8 @@ public class Grille {
                 if (CellulesJeu[iDepart+i][jDepart+j].jetonCourant!=null && CellulesJeu[iDepart+i+1][jDepart+j+1].jetonCourant!=null){
                     
                     //on compare un jeton à celui qui suit dans la diagonale
-                    if (CellulesJeu[iDepart + i][jDepart + j].jetonCourant.Couleur.equals(unJoueur.Couleur)
-                            && CellulesJeu[iDepart + i + 1][jDepart + j + 1].jetonCourant.Couleur.equals(unJoueur.Couleur)) {
+                    if (CellulesJeu[iDepart + i][jDepart + j].jetonCourant.CouleuR.equals(unJoueur.Couleur)
+                            && CellulesJeu[iDepart + i + 1][jDepart + j + 1].jetonCourant.CouleuR.equals(unJoueur.Couleur)) {
                         compteur += 1; // si les deux jetons sont identiques, on implémente
                         System.out.println(compteur);
                         if (compteur == 3) { //Si le compteur atteint 3, la condition de victoire est remplie
@@ -264,8 +264,8 @@ public class Grille {
                 if (CellulesJeu[iDepart + i][jDepart + j].jetonCourant != null && CellulesJeu[iDepart + i + 1][jDepart + j + 1].jetonCourant != null) {
 
                     //Cette condition compare un jeton à son suivant dans la diagonale
-                    if (CellulesJeu[iDepart + i][jDepart + j].jetonCourant.Couleur.equals(unJoueur.Couleur)
-                            && CellulesJeu[iDepart + i + 1][jDepart + j + 1].jetonCourant.Couleur.equals(unJoueur.Couleur)) {
+                    if (CellulesJeu[iDepart + i][jDepart + j].jetonCourant.CouleuR ==unJoueur.Couleur
+                            && CellulesJeu[iDepart + i + 1][jDepart + j + 1].jetonCourant.CouleuR == unJoueur.Couleur) {
                         compteur += 1; 
                         if (compteur == 3) { //le compteur atteint 3, il y'a une victoire
                             return true;
@@ -303,8 +303,8 @@ public class Grille {
                 if (CellulesJeu[iDepart+i][jDepart+j].jetonCourant!=null && CellulesJeu[iDepart+i-1][jDepart+j+1].jetonCourant!=null){
                     
                     
-                    if (CellulesJeu[iDepart + i][jDepart + j].jetonCourant.Couleur.equals(unJoueur.Couleur)
-                            && CellulesJeu[iDepart + i - 1][jDepart + j + 1].jetonCourant.Couleur.equals(unJoueur.Couleur)) {
+                    if (CellulesJeu[iDepart + i][jDepart + j].jetonCourant.CouleuR == unJoueur.Couleur
+                            && CellulesJeu[iDepart + i - 1][jDepart + j + 1].jetonCourant.CouleuR == unJoueur.Couleur) {
                         compteur += 1; 
                         if (compteur == 3) { 
                             return true;
@@ -339,8 +339,8 @@ public class Grille {
                 if (CellulesJeu[iDepart + i][jDepart + j].jetonCourant != null && CellulesJeu[iDepart + i - 1][jDepart + j + 1].jetonCourant != null) {
 
                    
-                    if (CellulesJeu[iDepart + i][jDepart + j].jetonCourant.Couleur.equals(unJoueur.Couleur)
-                            && CellulesJeu[iDepart + i - 1][jDepart + j + 1].jetonCourant.Couleur.equals(unJoueur.Couleur)) {
+                    if (CellulesJeu[iDepart + i][jDepart + j].jetonCourant.CouleuR == unJoueur.Couleur
+                            && CellulesJeu[iDepart + i - 1][jDepart + j + 1].jetonCourant.CouleuR == unJoueur.Couleur) {
                         compteur += 1; 
                         if (compteur == 3) { 
                             return true;
@@ -360,6 +360,16 @@ public class Grille {
         return false;
     }
     
+    public void tasserGrille(int coor1, int coor2){
+        Jeton JetonTemp; //variable temporaire pour stocker un jeton
+        if (CellulesJeu[coor1][coor2].jetonCourant == null){
+            for (int i = coor1-1; i>=0; i--){
+                JetonTemp = CellulesJeu[i][coor2].recupererJeton();//Récupération du jeton dans la case n+1 (-1 ici car i va de haut en bas)
+                CellulesJeu[i][coor2].jetonCourant = null;//Suppression du jeton dans la case n+1
+                CellulesJeu[i+1][coor2].affecterJeton(JetonTemp);//Affectation du jeton dans la case n
+            }
+        }
+    }
     public Jeton recupererJeton(int coor1,int coor2){//Cette méthode enlève le	jeton de la cellule visée et renvoie une référence vers	ce jeton.
    
         Jeton JetonArenvoyer;
@@ -373,42 +383,13 @@ public class Grille {
         return JetonArenvoyer;   
         
     }
-    public void tasserGrille(int coor1, int coor2){
-        Jeton JetonTemp; //variable temporaire pour stocker un jeton
-        if (CellulesJeu[coor1][coor2].jetonCourant == null){
-            for (int i = coor1-1; i>=0; i--){
-                JetonTemp = CellulesJeu[i][coor2].recupererJeton();//Récupération du jeton dans la case n+1 (-1 ici car i va de haut en bas)
-                CellulesJeu[i][coor2].jetonCourant = null;//Suppression du jeton dans la case n+1
-                CellulesJeu[i+1][coor2].affecterJeton(JetonTemp);//Affectation du jeton dans la case n
-            }
-        }
-    }
-    
     public boolean colonneRemplie(int colonne){
-        if(CellulesJeu[0][colonne - 1].jetonCourant != null){
-            return true;
-        }
-        else{
-            return false ;
-        }
+        return CellulesJeu[0][colonne - 1].jetonCourant != null;
     }
     
-    public boolean placerDesintegrateur(int coor1, int coor2){
-        if (!CellulesJeu[coor1][coor2].presenceDesintegrateur()){
-            CellulesJeu[coor1][coor2].placerDesintegrateur();
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
-    }
+}
 
 
-
-
-
-       
     
 
 
