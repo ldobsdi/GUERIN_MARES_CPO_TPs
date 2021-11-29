@@ -34,8 +34,8 @@ public class Grille {
             //Cas ou l'ajout d'un jeton est possible
             if (CellulesJeu[5-ligne][colonne-1].affecterJeton(unJeton)){
                 
-                //Cas où le jeton est affecté à une case avec un seul désintégrateur
-                if (CellulesJeu[5-ligne][colonne-1].recupererDesintegrateur()){
+                //Cas où le jeton est affecté à une case avec  "seulement" un désintégrateur
+                if (CellulesJeu[5-ligne][colonne-1].desintegrateur){
                     unePartie.joueurCourant.nombreDesintegrateurs++;
                     System.out.println("le joueur à gagné un désintégrateur.");
                 }
@@ -160,11 +160,12 @@ public class Grille {
                 //Dans ce cas-ci on compare deux cases l'une à  coté de l'autre horizontalement
                 //On vérifie si les deux cases comparées contiennent un jeton
                 if (CellulesJeu[i][j].jetonCourant!=null && CellulesJeu[i][j+1].jetonCourant!=null){
-                   
+                   System.out.println("ok"); 
 
-                    if (CellulesJeu[i][j].jetonCourant.Couleur.equals(unJoueur.Couleur)//on check si les cases contiennent un jeton de la mÃªme couleur, on rajoute 1 aux compteur si c'est le cas
-                        &&CellulesJeu[i][j+1].jetonCourant.Couleur.equals(unJoueur.Couleur)){
+                    if (CellulesJeu[i][j].jetonCourant.Couleur.equals(unJoueur.Couleur)&&CellulesJeu[i][j+1].jetonCourant.Couleur.equals(unJoueur.Couleur)){//on vérifie si les cases contiennent un jeton de la mÃªme couleur, on rajoute 1 aux compteur si c'est le cas
+                        System.out.println("ok2"); 
                         compteur += 1;
+                        System.out.println(compteur); 
                         if (compteur == 3){
                             return true;
                         }
@@ -173,8 +174,9 @@ public class Grille {
                         compteur = 0;
                     }
                 }
-                
+
                 else{compteur = 0;}
+                //System.out.println(compteur); 
             }
             
             compteur = 0;
@@ -208,9 +210,9 @@ public class Grille {
         //On vas maintenant vérifier le cas ou les cases sont l'une a coté de l'autre diagonalement.
         
         /*On défini un point de départ à partir duquel on dÃ©scend en diagonale en 
-        faisant varrier i et j. Ce point de départ ne peut se cituer que sur la ligne du haut et la colonne la plus à gauche.
+        faisant varrier i et j. Ce point de départ ne peut se situer que sur la ligne du haut et la colonne la plus à gauche.
         En déplacant ce point le long de la colonne de gauche, puis le long de la ligne du haut, on peut couvrir toute les cases*/
-        int iDepart = 0;
+        int iDepart = 0;   
         int jDepart = 0;
         int i = 0;
         int j = 0;
@@ -229,6 +231,7 @@ public class Grille {
                     if (CellulesJeu[iDepart + i][jDepart + j].jetonCourant.Couleur.equals(unJoueur.Couleur)
                             && CellulesJeu[iDepart + i + 1][jDepart + j + 1].jetonCourant.Couleur.equals(unJoueur.Couleur)) {
                         compteur += 1; // si les deux jetons sont identiques, on implémente
+                        System.out.println(compteur);
                         if (compteur == 3) { //Si le compteur atteint 3, la condition de victoire est remplie
                             return true;
                         } 
