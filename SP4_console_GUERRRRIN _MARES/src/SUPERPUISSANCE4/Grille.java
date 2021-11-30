@@ -37,6 +37,7 @@ public class Grille {
                 //Cas où le jeton est affecté à une case avec  "seulement" un désintégrateur
                 if (CellulesJeu[5-ligne][colonne-1].desintegrateur){
                     unePartie.joueurCourant.nombreDesintegrateurs++;
+                    
                     System.out.println("le joueur à gagné un désintégrateur.");
                 }
                 
@@ -154,8 +155,9 @@ public class Grille {
         int compteur = 0;
         
         //série de for qui parcours les cases de la grille
-        for (int i = 0; i<6; i++){ //i = les lignes
-            for (int j = 0; j<6;j++){ //j = les colonnes
+      
+        for (int j = 0; j<5; j++){ //i = les lignes
+            for (int i = 0; i<6;i++){ //j = les colonnes
                 
                 //Dans ce cas-ci on compare deux cases l'une à  coté de l'autre horizontalement
                 //On vérifie si les deux cases comparées contiennent un jeton
@@ -171,24 +173,24 @@ public class Grille {
                         }
                     }
                     else{
-                        compteur = 0;
+                        //compteur = 0;
                     }
                 }
 
-                else{compteur = 0;}
+                //else{compteur = 0;}
                 //System.out.println(compteur); 
             }
             
             compteur = 0;
         }
         
- 
         
         //Réinitialisation du compteur
         compteur = 0;
-        for (int j = 0; j < 7; j++) {
-            for (int i = 0; i < 5; i++)
-                                //Dans ce cas-ci on compare deux cases l'une à  coté de l'autre verticalement.
+       
+        for (int j = 0; j < 6; j++) { //Colonnes ( de 0 à 6)
+            for (int i = 0; i < 5; i++) //Lignes 
+                //Dans ce cas-ci on compare deux cases l'une à  coté de l'autre verticalement.
                 //On vérifie si les deux cases comparées contiennent un jeton
                 if (CellulesJeu[i][j].jetonCourant!=null && CellulesJeu[i+1][j].jetonCourant!=null){
                    
@@ -206,13 +208,13 @@ public class Grille {
                 }
             compteur = 0;
             }
-        
+    
         //On vas maintenant vérifier le cas ou les cases sont l'une a coté de l'autre diagonalement.
         
         /*On défini un point de départ à partir duquel on dÃ©scend en diagonale en 
         faisant varrier i et j. Ce point de départ ne peut se situer que sur la ligne du haut et la colonne la plus à gauche.
         En déplacant ce point le long de la colonne de gauche, puis le long de la ligne du haut, on peut couvrir toute les cases*/
-        int iDepart = 0;   
+        int iDepart = 0;
         int jDepart = 0;
         int i = 0;
         int j = 0;
